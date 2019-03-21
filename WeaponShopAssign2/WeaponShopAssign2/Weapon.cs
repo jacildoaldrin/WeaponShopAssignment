@@ -6,20 +6,20 @@ namespace WeaponShopAssign2
 {
     class Weapon
     {
-        public string weaponName;
+        public string name;
         public int range;
         public int damage;
         public double weight;
         public double cost;
         public Weapon nextWeapon;
 
-        public Weapon(string n, int rang, int dam, double w, double c)
+        public Weapon(string name, int range, int damage, double weight, double cost)
         {
-            weaponName = n;
-            damage = dam;
-            range = rang;
-            weight = w;
-            cost = c;
+            this.name = name;
+            this.damage = damage;
+            this.range = range;
+            this.weight = weight;
+            this.cost = cost;
             nextWeapon = null;
         }
     }

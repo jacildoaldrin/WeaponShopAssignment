@@ -21,7 +21,7 @@ namespace WeaponShopAssign2
 
         public void buy(Weapon w)
         {
-            Console.WriteLine(w.weaponName+" bought...");
+            Console.WriteLine(w.name+" bought...");
             backpack.addWeapon(w);
             Console.Write(backpack.presentWeight);
         }
