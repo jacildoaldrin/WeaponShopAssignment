@@ -20,3 +20,14 @@ C:\Users\ajaci\source\repos\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcor
 C:\Users\ajaci\source\repos\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.runtimeconfig.dev.json
 C:\Users\ajaci\source\repos\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.dll
 C:\Users\ajaci\source\repos\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.pdb
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\obj\Debug\netcoreapp2.0\WeaponShopAssign2.csprojAssemblyReference.cache
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\obj\Debug\netcoreapp2.0\WeaponShopAssign2.csproj.CoreCompileInputs.cache
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\obj\Debug\netcoreapp2.0\WeaponShopAssign2.AssemblyInfoInputs.cache
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\obj\Debug\netcoreapp2.0\WeaponShopAssign2.AssemblyInfo.cs
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\obj\Debug\netcoreapp2.0\WeaponShopAssign2.dll
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\obj\Debug\netcoreapp2.0\WeaponShopAssign2.pdb
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.deps.json
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.runtimeconfig.json
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.runtimeconfig.dev.json
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.dll
+C:\Users\ajaci\OneDrive\Not Relevant\HIGH SCHOOL STUFFS\Documents\GitHub\WeaponShopAssignment\WeaponShopAssign2\WeaponShopAssign2\bin\Debug\netcoreapp2.0\WeaponShopAssign2.pdb

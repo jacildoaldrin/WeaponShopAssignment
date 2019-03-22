@@ -19,11 +19,9 @@ namespace WeaponShopAssign2
             backpack = new Backpack(maxWeight);
         }
 
-        public void buy(Weapon w)
+        public void buyWeapon(Weapon w)
         {
-            Console.WriteLine(w.name+" bought...");
             backpack.addWeapon(w);
-            Console.Write(backpack.presentWeight);
         }
         public void withdraw(double amt)
         {
@@ -38,13 +36,14 @@ namespace WeaponShopAssign2
 
         public void printCharacter()
         {
-            Console.WriteLine(" Name:"+name+"\n Money:"+money);
+            Console.WriteLine("----- DISPLAYING PLAYER INFO -----");
+            Console.WriteLine("\nPlayer Name: {0}\nMoney: {1}\nMax Weight: {2}\n", name, money, maxWeight);
             printBackpack();
         }
 
         public void printBackpack()
         {
-            Console.WriteLine(name + ", your backpack weighs " + backpack.presentWeight + " Weapons:");
+            Console.WriteLine(name + ", your backpack weighs " + backpack.presentWeight + "\nWeapons:");
             backpack.listWeapons();
         }
     }

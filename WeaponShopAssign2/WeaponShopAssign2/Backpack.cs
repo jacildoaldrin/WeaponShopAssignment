@@ -8,51 +8,51 @@ namespace WeaponShopAssign2
     // If an attempt to add a weapon to backpack is rejected due to weight
     class Backpack
     {
-        public Weapon weapon;
+        public BackpackNode head;
         public double maxWeight;
         public double presentWeight;
 
         public Backpack(double maxWeight)
         {
-            weapon = null;
+            head = null;
             this.maxWeight = maxWeight;
             presentWeight = 0;
         }
         
-        public void addWeapon(Weapon newWeapon)
+        public bool addWeapon(Weapon newWeapon)
         {
             if(presentWeight + newWeapon.weight <= maxWeight)
             {
-                if (weapon == null)
+                if (head == null)
                 {
-                    weapon = newWeapon;
+                    head = new BackpackNode(newWeapon);
                 }
                 else
                 {
-                    Weapon curr = weapon;
-                    while (curr.nextWeapon != null)
+                    BackpackNode curr = head;
+                    while (curr.next != null)
                     {
-                        curr = curr.nextWeapon;
+                        curr = curr.next;
                     }
-                    curr = weapon;
+                    curr.next = new BackpackNode(newWeapon);
                 }
                 presentWeight += newWeapon.weight;
-                return;
+                return true;
             }
             else
             {
                 Console.WriteLine("\nYou're going to exceed the weight limit, please discard an item before you add this one!\n");
-                return;
+                return false;
             }
         }
 
         public void listWeapons()
         {
-            Weapon curr = weapon;
-            while(curr.nextWeapon != null)
+            BackpackNode curr = head;
+            while(curr != null)
             {
-                Console.WriteLine(curr.weaponName);
-                curr = curr.nextWeapon;
+                Console.WriteLine(curr.weapon.name);
+                curr = curr.next;
             }
             Console.WriteLine();
         }

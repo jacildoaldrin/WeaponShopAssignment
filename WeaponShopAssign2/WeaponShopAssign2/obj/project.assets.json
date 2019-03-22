@@ -682,11 +682,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ajaci\\source\\repos\\WeaponShopAssign2\\WeaponShopAssign2\\WeaponShopAssign2.csproj",
+      "projectUniqueName": "C:\\Users\\ajaci\\OneDrive\\Not Relevant\\HIGH SCHOOL STUFFS\\Documents\\GitHub\\WeaponShopAssignment\\WeaponShopAssign2\\WeaponShopAssign2\\WeaponShopAssign2.csproj",
       "projectName": "WeaponShopAssign2",
-      "projectPath": "C:\\Users\\ajaci\\source\\repos\\WeaponShopAssign2\\WeaponShopAssign2\\WeaponShopAssign2.csproj",
+      "projectPath": "C:\\Users\\ajaci\\OneDrive\\Not Relevant\\HIGH SCHOOL STUFFS\\Documents\\GitHub\\WeaponShopAssignment\\WeaponShopAssign2\\WeaponShopAssign2\\WeaponShopAssign2.csproj",
       "packagesPath": "C:\\Users\\ajaci\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ajaci\\source\\repos\\WeaponShopAssign2\\WeaponShopAssign2\\obj\\",
+      "outputPath": "C:\\Users\\ajaci\\OneDrive\\Not Relevant\\HIGH SCHOOL STUFFS\\Documents\\GitHub\\WeaponShopAssignment\\WeaponShopAssign2\\WeaponShopAssign2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -4,13 +4,13 @@ using System.Text;
 
 namespace WeaponShopAssign2
 {
-    class ShopWeapon
+    class BSTNode
     {
         public Weapon weapon;
-        public ShopWeapon weaponLeft, weaponRight;
+        public BSTNode weaponLeft, weaponRight;
         public int quantity;
 
-        public ShopWeapon(Weapon weapon)
+        public BSTNode(Weapon weapon)
         {
             this.weapon = weapon;
             quantity = 1;

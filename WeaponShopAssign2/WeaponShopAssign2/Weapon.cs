@@ -11,16 +11,14 @@ namespace WeaponShopAssign2
         public int damage;
         public double weight;
         public double cost;
-        public Weapon nextWeapon;
 
         public Weapon(string name, int range, int damage, double weight, double cost)
         {
             this.name = name;
-            this.damage = damage;
             this.range = range;
+            this.damage = damage;
             this.weight = weight;
             this.cost = cost;
-            nextWeapon = null;
         }
     }
 }

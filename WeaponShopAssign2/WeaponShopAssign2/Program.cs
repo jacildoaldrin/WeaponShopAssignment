@@ -4,101 +4,157 @@ namespace WeaponShopAssign2
 {
     class Program
     {
-        static  Shop bt = new Shop();
-        static string playerName;
-        
+        static MyBST shop = new MyBST();
+        static Player player;
+
         //prints the starting menu
-        public static void getPlayerInfo()
+        static void getPlayerInfo()
         {
-            Console.WriteLine("----- WELCOME TO THE WORLD OF RAGNAROK -----");
             string playerName = getStringInput("Please Enter Your Name: ");
+            int playerMoney = getIntInput("Enter how much gold you have: ");
+            double playerMaxWeight = getDoubleInput("How much weight can you carry: ");
+            player = new Player(playerName, playerMoney, playerMaxWeight);
         }
 
-
-        /*prints the menu
-        static void shopMenu()
+        //method that adds weapon to the shop
+        static void addShopMerchandise()
         {
-            Console.WriteLine("Welcome to my Dictionary Software, please enter the number of the function you want to perform(1 - 6)");
-            Console.WriteLine("\n1: Add a new word\n\n2: Delete Word\n\n3: Get Meaning\n\n4: Dictionary List\n\n5: Print Dictionary\n\n6: Exit\n");
-            Console.Write("Entered Value: ");
-        }
-
-        //adds a word to the dictionary, and its meaning
-        static void addWord()
-        {
-            Console.WriteLine("********** ADDING WORD **********\n");
-            string word = getStringInput("Enter a word: ");
-            string meaning = getStringInput("Enter the meaning of the word: ");
-
-            dictionary.addWord(word, meaning);
-        }
-
-        //delete a word from the dictionary
-        static void deleteWord()
-        {
-            Console.WriteLine("********** DELETING WORD **********\n");
-            string word = getStringInput("Enter a word: ");
-            dictionary.deleteWord(word);
-        }
-        //prints the meaning of the word entered by the user
-        static void getMeaning()
-        {
-            Console.WriteLine("********** GETTING WORD MEANING **********\n");
-            string word = getStringInput("Enter a word: ");
-            string meaning = dictionary.getMeaning(word);
-            if (meaning != "word not found")
+            Console.WriteLine("------ ADDING WEAPON TO THE SHOP ------");
+            string choice = "";
+            do
             {
-                Console.WriteLine("Meaning: " + meaning);
+                string weaponName = getStringInput("Enter the weapon name: ");
+                int weaponRange = getIntInput("Enter the weapon range(1-10): ");
+                int weaponDamage = getIntInput("Enter the weapon damage: ");
+                double weaponWeight = getDoubleInput("Enter the weapon weight: ");
+                double weaponCost = getDoubleInput("Enter the weapon price: ");
+                shop.addWeapon(weaponName, weaponRange, weaponDamage, weaponWeight, weaponCost);
+                choice = getStringInput("\nSuccessfully added the weapon to the shop!!\n\nIf you like to stop adding item to the shop, enter (end)!\n");
+            } while (choice != "end");
+        }
+
+        //prints the player information
+        static void printPlayerInfo()
+        {
+            Console.Clear();
+            player.printCharacter();
+        }
+
+        //starting menu
+        static void menu()
+        {
+            Console.Clear();
+            Console.WriteLine("----- WELCOME TO THE WORLD OF RAGNAROK -----");
+            Console.WriteLine("\n1.) Add items to the shop\n2.) Delete item from the shop\n3.) Buy from the shop\n4.) View Backpack\n5.) View Player\n6.) Exit\n");
+        }
+
+        //buy weapon from the shop
+        static void buyWeapon()
+        {
+            Console.WriteLine("----- BUYING WEAPON FROM THE SHOP -----\n");
+            shop.displayWeapons();
+            string name = getStringInput("Enter the Weapon name that you would like to buy: ");
+            BSTNode w = shop.search(name);
+            if (w != null)
+            {
+                Weapon weapon = w.weapon;
+                if(w.quantity > 0)
+                {
+                    w.quantity--;
+                    player.buyWeapon(w.weapon);
+                    Console.WriteLine("Successfully bought the weapon {0} for {1} coins!!", weapon.name, weapon.cost);
+                    player.money -= weapon.cost;
+                }
+                else
+                {
+                    Console.WriteLine("{0} is out of stock!", name);
+                }
             }
             else
             {
-                Console.WriteLine("\n" + meaning);
+                Console.WriteLine("{0} does not exist in this shop!", name);
             }
+
         }
 
-        //prints all the words in the dictionary
-        static void printWordList()
+        //view player backpack
+        static void viewBackpack()
         {
-            Console.WriteLine("********** LISTING ALL WORDS IN THE DICTIONARY **********\n");
-            Console.WriteLine(dictionary.printWordList());
+            Console.WriteLine("----- VIEWING PLAYER BACKPACK -----");
+            player.printBackpack();
         }
 
-        //prints the dictionary
-        static void printDictionary()
+        //gets int input from the user
+        static int getIntInput(string prompt)
         {
-            Console.WriteLine("********** LISTING ALL WORDS AND THEIR MEANING IN THE DICTIONARY **********\n");
-            dictionary.printDictionary();
+            int input;
+            do
+            {
+                Console.Write(prompt);
+            } while (!int.TryParse(Console.ReadLine(), out input));
+            return input;
         }
-        */
 
+        //get double input from the user
+        static double getDoubleInput(string prompt)
+        {
+            double input;
+            do
+            {
+                Console.Write(prompt);
+            } while (!double.TryParse(Console.ReadLine(), out input));
+            return input;
+        }
 
         //gets string input from the user
         static string getStringInput(string prompt)
         {
             Console.Write(prompt);
-            return Console.ReadLine().ToLower();
+            return Console.ReadLine();
+        }
+        
+        //gets a choice from the user from 1-6
+        static int getChoice()
+        {
+            int choice;
+            do
+            {
+                menu();
+                choice = getIntInput("Input: ");
+            } while (choice > 6 || choice < 1);
+            return choice;
         }
 
-        /*
-        public static void runProgram(int choice)
+        //run the program while user has not chosen to quit
+        static void start()
+        {
+            int choice = getChoice();
+            while (choice != 6)
+            {
+                run(choice);
+                choice = getChoice();
+            }
+        }
+
+        //the runs the function depending on the choice chosen by the user
+        static void run(int choice)
         {
             Console.Clear();
             switch (choice)
             {
                 case 1:
-                    addWord();
+                    addShopMerchandise();
                     break;
                 case 2:
-                    deleteWord();
                     break;
                 case 3:
-                    getMeaning();
+                    buyWeapon();
                     break;
                 case 4:
-                    printWordList();
+                    viewBackpack();
                     break;
                 case 5:
-                    printDictionary();
+                    printPlayerInfo();
                     break;
                 default:
                     Console.WriteLine("Invalid input, please try again.");
@@ -108,16 +164,13 @@ namespace WeaponShopAssign2
             Console.ReadKey();
             Console.Clear();
         }
-        */
+
         static void Main(string[] args)
         {
-
-            Shop s = new Shop();
-            s.insert("Balmung", 10, 105, 150, 2000, 5);
-            s.insert("Balmung", 10, 1055, 1540, 23000, 5);
-            s.insert("Excalibur", 6, 140, 222, 5000, 5);
-            s.insert("Ancients", 8, 103, 111, 4000, 2);
-            s.inOrder();
+            
+            getPlayerInfo();
+            start();
+            Console.WriteLine("\nGOODBYE!");
             Console.ReadKey();
         }
     }
