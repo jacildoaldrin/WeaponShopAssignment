@@ -17,6 +17,50 @@ namespace WeaponShopAssign2
             player = new Player(playerName, playerMoney, playerMaxWeight);
         }
 
+        //prints the player information
+        static void printPlayerInfo()
+        {
+            Console.Clear();
+            player.printCharacter();
+        }
+
+        //view player backpack
+        static void viewBackpack()
+        {
+            Console.WriteLine("----- VIEWING PLAYER BACKPACK -----");
+            player.printBackpack();
+        }
+
+        //buy weapon from the shop
+        static void buyWeapon()
+        {
+            Console.WriteLine("----- BUYING WEAPON FROM THE SHOP -----\n");
+            Console.WriteLine("Weapon List:");
+
+            shop.displayWeapons();
+            string name = getStringInput("Enter the Weapon name that you would like to buy: ");
+            BSTNode w = shop.search(name);
+            if (w != null)
+            {
+                Weapon weapon = w.weapon;
+                if (w.quantity > 0)
+                {
+                    w.quantity--;
+                    player.buyWeapon(w.weapon);
+                    player.money -= weapon.cost;
+                }
+                else
+                {
+                    Console.WriteLine("{0} is out of stock!", name);
+                }
+            }
+            else
+            {
+                Console.WriteLine("{0} does not exist in this shop!", name);
+            }
+
+        }
+
         //method that adds weapon to the shop
         static void addShopMerchandise()
         {
@@ -36,11 +80,13 @@ namespace WeaponShopAssign2
             }
         }
 
-        //prints the player information
-        static void printPlayerInfo()
+        //delete weapon from the shop
+        static void deleteWeapon()
         {
-            Console.Clear();
-            player.printCharacter();
+            Console.WriteLine("----- WEAPON DELETION -----/nWeapon List:\n");
+            shop.displayWeapons();
+            string name = getStringInput("Enter the name of the weapon you would like to delete: ");
+            shop.delete(name);
         }
 
         //starting menu
@@ -49,41 +95,6 @@ namespace WeaponShopAssign2
             Console.Clear();
             Console.WriteLine("----- WELCOME TO THE WORLD OF RAGNAROK -----");
             Console.WriteLine("\n1.) Add items to the shop\n2.) Delete item from the shop\n3.) Buy from the shop\n4.) View Backpack\n5.) View Player\n6.) Exit\n");
-        }
-
-        //buy weapon from the shop
-        static void buyWeapon()
-        {
-            Console.WriteLine("----- BUYING WEAPON FROM THE SHOP -----\n");
-            shop.displayWeapons();
-            string name = getStringInput("Enter the Weapon name that you would like to buy: ");
-            BSTNode w = shop.search(name);
-            if (w != null)
-            {
-                Weapon weapon = w.weapon;
-                if(w.quantity > 0)
-                {
-                    w.quantity--;
-                    player.buyWeapon(w.weapon);
-                    player.money -= weapon.cost;
-                }
-                else
-                {
-                    Console.WriteLine("{0} is out of stock!", name);
-                }
-            }
-            else
-            {
-                Console.WriteLine("{0} does not exist in this shop!", name);
-            }
-
-        }
-
-        //view player backpack
-        static void viewBackpack()
-        {
-            Console.WriteLine("----- VIEWING PLAYER BACKPACK -----");
-            player.printBackpack();
         }
 
         //gets int input from the user
@@ -148,6 +159,7 @@ namespace WeaponShopAssign2
                     addShopMerchandise();
                     break;
                 case 2:
+                    deleteWeapon();
                     break;
                 case 3:
                     buyWeapon();
@@ -157,9 +169,6 @@ namespace WeaponShopAssign2
                     break;
                 case 5:
                     printPlayerInfo();
-                    break;
-                default:
-                    Console.WriteLine("Invalid input, please try again.");
                     break;
             }
             Console.WriteLine("\nPress any key to go back to the menu.");
