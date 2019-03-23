@@ -52,8 +52,8 @@ namespace WeaponShopAssign2
         private BSTNode searchWorker(BSTNode curr, string name)
         {
             if (curr == null) return null;
-            if (curr.weapon.name == name) return curr;
-            if (string.Compare(name, curr.weapon.name) < 0) curr.weaponLeft = searchWorker(curr.weaponLeft, name);
+            if (curr.weapon.name.ToLower() == name.ToLower()) return curr;
+            if (string.Compare(name.ToLower(), curr.weapon.name.ToLower()) < 0) curr.weaponLeft = searchWorker(curr.weaponLeft, name);
             return searchWorker(curr.weaponRight, name);
         }
 

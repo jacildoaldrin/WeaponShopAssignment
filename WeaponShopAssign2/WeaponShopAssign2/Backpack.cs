@@ -44,7 +44,7 @@ namespace WeaponShopAssign2
             BackpackNode curr = head;
             while(curr != null)
             {
-                Console.WriteLine("Weapon Name: \t{0}\nDamage: \t{1}\nRange: \t{2}\nWeight: \t{3}\n", curr.weapon.name, curr.weapon.damage, curr.weapon.range, curr.weapon.weight);
+                Console.WriteLine("Weapon Name: \t{0}\nDamage: \t{1}\nRange:  \t{2}\nWeight: \t{3}\n", curr.weapon.name, curr.weapon.damage, curr.weapon.range, curr.weapon.weight);
                 curr = curr.next;
             }
             Console.WriteLine();

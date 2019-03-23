@@ -23,6 +23,7 @@ namespace WeaponShopAssign2
             string choice = getStringInput("------ ADDING WEAPON TO THE SHOP ------\nEnter('end') to exit weapon addition menu: ");
             while(choice.ToLower() != "end")
             {
+                Console.Clear();
                 Console.WriteLine("------ ADDING WEAPON TO THE SHOP ------");
                 string weaponName = getStringInput("\nEnter the weapon name: ");
                 int weaponRange = getIntInput("Enter the weapon range: ");
@@ -32,7 +33,6 @@ namespace WeaponShopAssign2
                 shop.addWeapon(weaponName, weaponRange, weaponDamage, weaponWeight, weaponCost);
                 Console.WriteLine("\nSuccessfully added the weapon to the shop!\n");
                 choice = getStringInput("Enter('end') to exit weapon addition menu: ");
-                Console.Clear();
             }
         }
 
