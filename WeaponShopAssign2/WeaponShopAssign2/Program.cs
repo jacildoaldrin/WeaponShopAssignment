@@ -10,7 +10,8 @@ namespace WeaponShopAssign2
         //prints the starting menu
         static void getPlayerInfo()
         {
-            string playerName = getStringInput("Please Enter Your Name: ");
+            Console.WriteLine("----- GETTING PLAYER INFO -----");
+            string playerName = getStringInput("\nPlease Enter Your Name: ");
             int playerMoney = getIntInput("Enter how much gold you have: ");
             double playerMaxWeight = getDoubleInput("How much weight can you carry: ");
             player = new Player(playerName, playerMoney, playerMaxWeight);
@@ -19,18 +20,20 @@ namespace WeaponShopAssign2
         //method that adds weapon to the shop
         static void addShopMerchandise()
         {
-            Console.WriteLine("------ ADDING WEAPON TO THE SHOP ------");
-            string choice = "";
-            do
+            string choice = getStringInput("------ ADDING WEAPON TO THE SHOP ------\nEnter('end') to exit weapon addition menu: ");
+            while(choice.ToLower() != "end")
             {
-                string weaponName = getStringInput("Enter the weapon name: ");
-                int weaponRange = getIntInput("Enter the weapon range(1-10): ");
+                Console.WriteLine("------ ADDING WEAPON TO THE SHOP ------");
+                string weaponName = getStringInput("\nEnter the weapon name: ");
+                int weaponRange = getIntInput("Enter the weapon range: ");
                 int weaponDamage = getIntInput("Enter the weapon damage: ");
                 double weaponWeight = getDoubleInput("Enter the weapon weight: ");
                 double weaponCost = getDoubleInput("Enter the weapon price: ");
                 shop.addWeapon(weaponName, weaponRange, weaponDamage, weaponWeight, weaponCost);
-                choice = getStringInput("\nSuccessfully added the weapon to the shop!!\n\nIf you like to stop adding item to the shop, enter (end)!\n");
-            } while (choice != "end");
+                Console.WriteLine("\nSuccessfully added the weapon to the shop!\n");
+                choice = getStringInput("Enter('end') to exit weapon addition menu: ");
+                Console.Clear();
+            }
         }
 
         //prints the player information
@@ -62,7 +65,6 @@ namespace WeaponShopAssign2
                 {
                     w.quantity--;
                     player.buyWeapon(w.weapon);
-                    Console.WriteLine("Successfully bought the weapon {0} for {1} coins!!", weapon.name, weapon.cost);
                     player.money -= weapon.cost;
                 }
                 else

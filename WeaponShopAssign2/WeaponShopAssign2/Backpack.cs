@@ -21,29 +21,22 @@ namespace WeaponShopAssign2
         
         public bool addWeapon(Weapon newWeapon)
         {
-            if(presentWeight + newWeapon.weight <= maxWeight)
+            if (head == null)
             {
-                if (head == null)
-                {
-                    head = new BackpackNode(newWeapon);
-                }
-                else
-                {
-                    BackpackNode curr = head;
-                    while (curr.next != null)
-                    {
-                        curr = curr.next;
-                    }
-                    curr.next = new BackpackNode(newWeapon);
-                }
-                presentWeight += newWeapon.weight;
-                return true;
+                head = new BackpackNode(newWeapon);
             }
             else
             {
-                Console.WriteLine("\nYou're going to exceed the weight limit, please discard an item before you add this one!\n");
-                return false;
+                BackpackNode curr = head;
+                while (curr.next != null)
+                {
+                    curr = curr.next;
+                }
+                curr.next = new BackpackNode(newWeapon);
             }
+            presentWeight += newWeapon.weight;
+            return true;
+
         }
 
         public void listWeapons()
@@ -51,7 +44,7 @@ namespace WeaponShopAssign2
             BackpackNode curr = head;
             while(curr != null)
             {
-                Console.WriteLine(curr.weapon.name);
+                Console.WriteLine("Weapon Name: \t{0}\nDamage: \t{1}\nRange: \t{2}\nWeight: \t{3}\n", curr.weapon.name, curr.weapon.damage, curr.weapon.range, curr.weapon.weight);
                 curr = curr.next;
             }
             Console.WriteLine();

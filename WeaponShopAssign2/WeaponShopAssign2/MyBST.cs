@@ -22,9 +22,9 @@ namespace WeaponShopAssign2
         private BSTNode insertWorker(BSTNode curr, Weapon newWeapon)
         {
             if (curr == null) return new BSTNode(newWeapon);
-            if (string.Compare(newWeapon.name, curr.weapon.name) < 0) curr.weaponLeft = insertWorker(curr.weaponLeft, newWeapon);
-            if (string.Compare(newWeapon.name, curr.weapon.name) > 0) curr.weaponRight = insertWorker(curr.weaponRight, newWeapon);
-            if (string.Compare(newWeapon.name, curr.weapon.name) == 0) curr.quantity++;
+            if (string.Compare(newWeapon.name.ToLower(), curr.weapon.name.ToLower()) < 0) curr.weaponLeft = insertWorker(curr.weaponLeft, newWeapon);
+            if (string.Compare(newWeapon.name.ToLower(), curr.weapon.name.ToLower()) > 0) curr.weaponRight = insertWorker(curr.weaponRight, newWeapon);
+            if (string.Compare(newWeapon.name.ToLower(), curr.weapon.name.ToLower()) == 0) curr.quantity++;
             return curr;
         }
 

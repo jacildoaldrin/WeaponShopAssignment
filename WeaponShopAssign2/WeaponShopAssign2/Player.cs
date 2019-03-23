@@ -19,20 +19,28 @@ namespace WeaponShopAssign2
             backpack = new Backpack(maxWeight);
         }
 
-        public void buyWeapon(Weapon w)
+        public void buyWeapon(Weapon weapon)
         {
-            backpack.addWeapon(w);
+            if (inventoryFull(weapon))
+            {
+                backpack.addWeapon(weapon);
+                Console.WriteLine("Successfully bought the weapon {0} for {1} coins!!", weapon.name, weapon.cost);
+            }
+            else
+            {
+                Console.WriteLine("\nYou're going to exceed the weight limit, please discard an item before you add this one!\n");
+            }
+
         }
         public void withdraw(double amt)
         {
             money -= amt;
         }
 
-        public bool inventoryFull()
+        public bool inventoryFull(Weapon weapon)
         {
-            return backpack.presentWeight == maxWeight;
+            return (backpack.presentWeight + weapon.weight) <= maxWeight;
         }
-
 
         public void printCharacter()
         {
@@ -43,7 +51,7 @@ namespace WeaponShopAssign2
 
         public void printBackpack()
         {
-            Console.WriteLine(name + ", your backpack weighs " + backpack.presentWeight + "\nWeapons:");
+            Console.WriteLine("\n"+ name + ", your backpack weighs " + backpack.presentWeight + "\n\nWeapons:");
             backpack.listWeapons();
         }
     }
